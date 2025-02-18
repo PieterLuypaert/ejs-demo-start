@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="nl">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,13 +9,24 @@
   <link rel="stylesheet" href="/css/main.css">
   <title>Mijn eerste EJS applicatie</title>
 </head>
+
 <body>
+  <header>
+    <nav>
+        <ul>
+            <% navigation.forEach(link=> { %>
+                <li><a href="<%= link.url %>"><%= link.label %></a></li>
+                <% }); %>
+        </ul>
+    </nav>
+</header>
   <h1>Welcome to EJS!</h1>
   <h2>
     <%=title %>
   </h2>
-    <p>
-        <%=content %>
-    </p>
+  <p>
+    <%=content %>
+  </p>
 </body>
+
 </html>
