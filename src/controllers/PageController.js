@@ -1,69 +1,49 @@
+/**
+ *
+ * todo 1: render de person in contact
+ * todo 2: render de navigatie items in ELKE template
+ *  STAP 1: importeer
+ *  STAP 2: voeg toe aan het renderobject
+ *  STAP 3: voeg een navigatiebalk toe aan alle templates
+ */
 
-import { person } from "../data/data.js";
-
+import { person, navItems } from "../data/data.js";
 
 export const home = (req, res) => {
+  // res.render("<NAAM VAN DE VIEW>", {<DATA NAAR DE VIEW>})
   res.render("pages/home", {
-    title: "dinausurus",
-    content: "dinosaurs are diverse group of reptiles of the clade Dinosauria.",
-    message: "Welcome to the Dinosaurs homepage!",
-    navigation: [
-        { url: '/', label: 'Home' },
-        { url: '/about', label: 'About' },
-        { url: '/contact', label: 'Contact' },
-        { url: '/privacy', label: 'Privacy' },
-    ]
+    title: "Dinosaurs around the world",
+    content: "Welcome to the world of dinosaurs",
+    navItems,
+    secret: "abc123",
   });
 };
-
 export const about = (req, res) => {
   res.render("pages/default", {
-    title: "About dinousrus",
-    content:
-      "Dinosaurs are a diverse group of reptiles of the clade Dinosauria.",
-    message: "Welcome to the Dinosaurs about page!",
+    title: "About us",
+    content: "We are a group of dinosaur enthusiasts",
     team: [
-      "T-rex",
-      "andere T-rex",
-      "vleesetende T-rex",
-      "plantetende T-rex",
-      "<strong>Allesetende</strong> T-rex",
+      "T-Rex",
+      "Velociraptor",
+      "Stegosaurus",
+      "<strong>Premium</strong> Diplodocus",
     ],
-    navigation: [
-        { url: '/', label: 'Home' },
-        { url: '/about', label: 'About' },
-        { url: '/contact', label: 'Contact' },
-        { url: '/privacy', label: 'Privacy' },
-    ]
+    navItems,
   });
 };
 export const contact = (req, res) => {
   res.render("pages/contact", {
     title: "Contact",
-    content:
-      "Dinosaurs are a diverse group of reptiles of the clade Dinosauria.",
-    message: "Welcome to the Dinosaurs contact page!",
+    content: "Contact us at 09 233 40 89",
     person,
-    navigation: [
-        { url: '/', label: 'Home' },
-        { url: '/about', label: 'About' },
-        { url: '/contact', label: 'Contact' },
-        { url: '/privacy', label: 'Privacy' },
-    ]
+    navItems,
   });
 };
-
 export const privacy = (req, res) => {
   res.render("pages/default", {
-    title: "Privacy policy",
-    content:
-      "Dinosaurs are a diverse group of reptiles of the clade Dinosauria.",
-    message: "Welcome to the Dinosaurs privacy page!",
+    title: "Privacy Policy",
+    content: "Dinosaurs are protective of their privacy",
     team: false,
-    navigation: [
-        { url: '/', label: 'Home' },
-        { url: '/about', label: 'About' },
-        { url: '/contact', label: 'Contact' },
-        { url: '/privacy', label: 'Privacy' },
-    ]  });
+    navItems,
+  });
 };
