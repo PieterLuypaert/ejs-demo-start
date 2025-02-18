@@ -5,13 +5,17 @@ import path from "path";
 // create an instance of express
 const app = express();
 
+app.use(express.json("public"));
+app.set("view engine", "ejs");
+app.set("views", path.resolve("src", "views"));
+
 // serve static files from the public folder
 // they can be accessed from the root of the site (e.g. /assets/images/dino_07.png) 🦕
 app.use(express.static("public"));
 
 // GET route to serve the index.html file
 app.get("/", (req, res) => {
-  res.sendFile(path.resolve("src", "views", "index.html"));
+  res.render("home", { title: "dinausurus", content: "dinosaurs are diverse group of reptiles of the clade Dinosauria." });
 });
 
 // start the server, listen on port defined in .env file
